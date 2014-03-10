@@ -1,0 +1,555 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cl",
+				"clone  (function)"
+			],
+			[
+				"new",
+				"newLi"
+			],
+			[
+				"te",
+				"text	.text"
+			],
+			[
+				"read",
+				"ready	$(document).ready"
+			],
+			[
+				"li",
+				"li"
+			],
+			[
+				"u",
+				"ulist"
+			],
+			[
+				"firs",
+				"firstID"
+			],
+			[
+				"htm",
+				"html	.html"
+			],
+			[
+				"ht",
+				"html	.html"
+			],
+			[
+				"a",
+				"attr	.attr() - single"
+			],
+			[
+				"fir",
+				"firstH1"
+			],
+			[
+				"att",
+				"attr	.attr() - multiple"
+			],
+			[
+				"remo",
+				"remove	.remove()"
+			],
+			[
+				"get",
+				"get	$.get()"
+			],
+			[
+				"re",
+				"removeClass  (function)"
+			],
+			[
+				"add",
+				"addClass  (function)"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"st",
+				"style	Tag"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"si",
+				"sidebar"
+			],
+			[
+				"sr",
+				"script	Tag"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"na",
+				"nav	Tag"
+			],
+			[
+				"hea",
+				"header	Tag"
+			],
+			[
+				"fade",
+				"fadeIn  (function)"
+			],
+			[
+				"fe",
+				"fadeOut  (function)"
+			],
+			[
+				"inde",
+				"indexNum"
+			],
+			[
+				"tex",
+				"text1"
+			],
+			[
+				"im",
+				"img	HTML - Image"
+			],
+			[
+				"rep",
+				"replaceWith	replaceWith"
+			],
+			[
+				"toggl",
+				"toggleClass	.toggleClass()"
+			],
+			[
+				"mouseenter",
+				"mouseenter  (function)"
+			],
+			[
+				"mou",
+				"mouseenter	mouseenter"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"hi",
+				"hide  (function)"
+			],
+			[
+				"slice",
+				"sliceUp"
+			],
+			[
+				"un",
+				"unbind	.unbind()"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"scr",
+				"script	Tag"
+			],
+			[
+				"b",
+				"body	Tag"
+			],
+			[
+				"con",
+				"content	Attr"
+			],
+			[
+				"o",
+				"offset	.offset"
+			],
+			[
+				"w",
+				"ownerDocument  (variable)"
+			],
+			[
+				"wi",
+				"write"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 96.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":wq",
+				"Snippet: jQuery Mobile: Listview with filter"
+			],
+			[
+				"sn",
+				"Snippet: html"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"synt",
+				"Set Syntax: JSON"
+			],
+			[
+				"ardui",
+				"Set Syntax: Arduino"
+			],
+			[
+				"arduino",
+				"Set Syntax: Rd (R Documentation)"
+			],
+			[
+				"al",
+				"AlignTab"
+			],
+			[
+				"a",
+				"AlignTab: Table Mode"
+			],
+			[
+				"packe",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Convert Case: Title Case"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"oacka",
+				"Package Control: List Packages"
+			],
+			[
+				"origam",
+				"Origami: Destroy Current Pane"
+			],
+			[
+				"ori",
+				"Origami: Create Pane Above"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"syntax",
+				"Set Syntax: MATLAB"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib3,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib3.install_opener( urllib3.build_opener( urllib3.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib3.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')",
+			"import urllib3,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Respaldo/BMC/Thesis/Latex/Thesis/main.tex",
+		"/Respaldo/Extend3d/www/js/helloworld.js",
+		"/Respaldo/kinect/AASanchezA.github.io/html/myJquery.html",
+		"/Respaldo/kinect/AASanchezA.github.io/myJquery.html",
+		"/Respaldo/myScript/page.html",
+		"/home/andres/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/andres/.config/sublime-text-3/Packages/EasyMotion/Default (Linux).sublime-keymap",
+		"/home/andres/kinect/AASanchezA.github.io/params.json",
+		"/home/andres/kinect/AASanchezA.github.io/index.html",
+		"/home/andres/vimgolf/assignmentalignment",
+		"/proc/1196/cmdline",
+		"/home/andres/kinect/AASanchezA.github.io/javascripts/main.js",
+		"/usr/share/arduino/examples/7.Display/RowColumnScanning/RowColumnScanning.ino",
+		"/home/andres/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/andres/.arduino/preferences.txt",
+		"/home/andres/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/Alignment/Default (Linux).sublime-keymap",
+		"/Respaldo/Extend3d/JavaJquery/listApp.html",
+		"/Respaldo/Extend3d/www/index.html",
+		"/Respaldo/Extend3d/JavaJquery/LearnJquery/learnjquery05.html",
+		"/Respaldo/Extend3d/JavaJquery/LearnJquery/learnjquery06.html",
+		"/Respaldo/Extend3d/JavaJquery/javajquery08.html",
+		"/Respaldo/Extend3d/JavaJquery/LearnJquery/learnjquery01.js",
+		"/Respaldo/Extend3d/JavaJquery/LearnJquery/learnjquery01.html",
+		"/Respaldo/Extend3d/JavaJquery/javajquery08.js",
+		"/Respaldo/Extend3d/JavaJquery/LearnJquery/jquery01.html",
+		"/Respaldo/Extend3d/JavaJquery/liastApp.js",
+		"/home/andres/.config/sublime-text-3/Packages/User/HTML.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/User/Emmet.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/Respaldo/Extend3d/JavaJquery/javajquery01.js",
+		"/Respaldo/Extend3d/JavaJquery/javajquery01.html",
+		"/home/andres/.config/sublime-text-3/Packages/EasyMotion/README.md",
+		"/Respaldo/Extend3d/html/helloworld.js",
+		"/Respaldo/Extend3d/html/helloworld.html",
+		"/Respaldo/BMC/Thesis/code/OpenCVGammaCorrection/GammaCorrection.cpp",
+		"/home/andres/.config/sublime-text-3/Packages/User/Distraction Free.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-keymap",
+		"/home/andres/.config/sublime-text-3/Packages/EasyMotion/EasyMotion.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/Alignment/Base File.sublime-settings",
+		"/home/andres/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/Respaldo/BMC/Thesis/code/FishDetector/src/FishDetector.cpp",
+		"/home/andres/.config/sublime-text-3/Packages/C++ Snippets/reference.md",
+		"/Respaldo/hardinfo_report.html",
+		"/Respaldo/vimrc",
+		"/Respaldo/BMC/Thesis/code/TriggeringCam/main.cpp",
+		"/media/F3E3-DC09/stereo/MIP01Calib_01.proj",
+		"/Respaldo/BMC/Thesis/code/captCamS/src/calibrator.cpp",
+		"/Respaldo/BMC/Thesis/presentation_kickOff/abstract",
+		"/Respaldo/BMC/Thesis/code/captCamS/src/captCamS.cpp",
+		"/Respaldo/BMC/Thesis/code/LINE2D_OPENCV/headImage.yml",
+		"/Respaldo/BMC/Thesis/code/LINE2D_OPENCV/headmasklist.yml",
+		"/Respaldo/BMC/Thesis/code/LINE2D_OPENCV/taillist.yml",
+		"/Respaldo/BMC/Thesis/code/LINE2D_OPENCV/tailmasklist.yml",
+		"/Respaldo/BMC/Thesis/code/FishDetector/src/FishDetector",
+		"/home/andres/kinect/opencv/modules/objdetect/src/linemod.cpp",
+		"/Respaldo/BMC/Thesis/code/anotationOpencv/src/anotation.cpp",
+		"/Respaldo/BMC/Thesis/code/readFile/main.cpp",
+		"/Respaldo/BMC/Thesis/code/imagelistCreator/imagelistCreator.cpp",
+		"/usr/share/OpenCV/samples/cpp/linemod.cpp",
+		"/Respaldo/BMC/Thesis/code/LINE2D_DETECTOR/runline2ddetector",
+		"/Respaldo/BMC/Thesis/code/FishDetector/runFishDetector",
+		"/Respaldo/Karin/curriculum vitae_Karin.tex",
+		"/Respaldo/BMC/Thesis/code/PartsBasedDetector/.gitignore",
+		"/home/andres/kinect/pose-release-ver1.2/code-full/learning/train.m",
+		"/home/andres/kinect/pose-release-ver1.2/code-full/pointtobox.m",
+		"/home/andres/kinect/pose-release-ver1.2/code-full/FISH3_demo.m",
+		"/home/andres/kinect/pose-release-ver1.2/code-full/FISH3_data.m",
+		"/home/andres/kinect/face/face-release1.0-full/multipie_data.m",
+		"/home/andres/kinect/face/face-release1.0-full/multipie_init.m",
+		"/home/andres/kinect/opencv/Build64/opencv_matlabBinding.txt",
+		"/home/andres/.vimrc",
+		"/Respaldo/BMC/Thesis/code/PartsBasedDetector/matlab/training_demo.m",
+		"/home/andres/kinect/PartsBasedDetector/README",
+		"/home/andres/kinect/PartsBasedDetector/src/demo.cpp",
+		"/home/andres/kinect/OpenTLD/README",
+		"/home/andres/kinect/voc-release5/train/split.m",
+		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/Canny.m",
+		"/home/andres/kinect/voc-release5/README",
+		"/home/andres/kinect/tiered/tiered.cpp",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/settings.tex",
+		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/BackgroundSubtractorMOG.m",
+		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/morphologyEx.m",
+		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/BOWImgDescriptorExtractor.m",
+		"/Respaldo/BMC/Thesis/code/STEREO_CALIB_OPENCV/src/stereo_calib.cpp",
+		"/Respaldo/BMC/Thesis/code/LINE2D_DETECTOR/src/line2ddetector.cpp",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/outline.tex",
+		"/Respaldo/BMC/Thesis/code/LINE2D_DETECTOR/src/cv_utilities.cc"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"article",
+			"\n	",
+			"+;\",",
+			"bold",
+			"true",
+			"ConfigFile",
+			"model",
+			"jkh",
+			"vintage"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.RowColumnScanning":
+	{
+		"height": 106.0
+	},
+	"output.exec":
+	{
+		"height": 84.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.stino_log":
+	{
+		"height": 106.0
+	},
+	"project": "bmcThesis.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"m",
+				"/Respaldo/BMC/Thesis/code/TriggeringCam/main.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+			"_cmdline_cd": "/home/andres/.config/sublime-text-3/Packages",
+			"last_buffer_search": "script"
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
