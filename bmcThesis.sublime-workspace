@@ -187,16 +187,64 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "main.tex",
+			"settings":
+			{
+				"buffer_size": 3378,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "components/settings.tex",
+			"settings":
+			{
+				"buffer_size": 3502,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/andres/Downloads/todonotesexample.tex",
+			"settings":
+			{
+				"buffer_size": 2334,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "components/abstract.tex",
+			"settings":
+			{
+				"buffer_size": 1992,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 96.0,
+		"height": 306.0,
 		"selected_items":
 		[
 			[
+				"latex",
+				"LaTeXTools: View PDF"
+			],
+			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"spell",
+				"Google Spell Check"
+			],
+			[
+				"git",
+				"Git: Commit"
 			],
 			[
 				":w",
@@ -243,10 +291,6 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"package",
-				"Package Control: List Packages"
-			],
-			[
 				"packa",
 				"Package Control: Install Package"
 			],
@@ -291,7 +335,7 @@
 				"Set Syntax: MATLAB"
 			]
 		],
-		"width": 449.0
+		"width": 458.0
 	},
 	"console":
 	{
@@ -315,6 +359,21 @@
 	},
 	"file_history":
 	[
+		"/Respaldo/BMC/Thesis/Latex/Thesis/README",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/outline.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/settings.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/chapters/Methods.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/chapters/Introduction.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/chapters/RelatedWork.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/chapters/Implementation.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/chapters/Conclusion.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/chapters/ResultsDiscussion.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/chapters/ResultsConclusion.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/disclaimer.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/info.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/titlepage.tex",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/main.pdf",
+		"/Respaldo/BMC/Thesis/Latex/Thesis/components/preface.tex",
 		"/Respaldo/BMC/Thesis/Latex/Thesis/main.tex",
 		"/Respaldo/Extend3d/www/js/helloworld.js",
 		"/Respaldo/kinect/AASanchezA.github.io/html/myJquery.html",
@@ -397,13 +456,11 @@
 		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/Canny.m",
 		"/home/andres/kinect/voc-release5/README",
 		"/home/andres/kinect/tiered/tiered.cpp",
-		"/Respaldo/BMC/Thesis/Latex/Thesis/components/settings.tex",
 		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/BackgroundSubtractorMOG.m",
 		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/morphologyEx.m",
 		"/usr/local/MATLAB/R2013a/toolbox/mexopencv/+cv/BOWImgDescriptorExtractor.m",
 		"/Respaldo/BMC/Thesis/code/STEREO_CALIB_OPENCV/src/stereo_calib.cpp",
 		"/Respaldo/BMC/Thesis/code/LINE2D_DETECTOR/src/line2ddetector.cpp",
-		"/Respaldo/BMC/Thesis/Latex/Thesis/components/outline.tex",
 		"/Respaldo/BMC/Thesis/code/LINE2D_DETECTOR/src/cv_utilities.cc"
 	],
 	"find":
@@ -422,6 +479,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\\section{Problem Statement}\n% There is no need for a latex introduction since there is plenty of literature out there.\n\n\n% \\section{Next Section}\n% There is no need for a latex introduction since there is plenty of literature out there.\n",
 			"article",
 			"\n	",
 			"+;\",",
@@ -448,8 +506,567 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "main.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3378,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								627,
+								627
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"line_numbers": false,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_gluing_sequence": false,
+								"_vintageous_input_parsers":
+								[
+								],
+								"_vintageous_non_interactive": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"native",
+									[
+										"sequence",
+										{
+											"commands":
+											[
+												[
+													"insert",
+													{
+														"characters": "Concl"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "usion"
+													}
+												]
+											]
+										}
+									],
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"user_input": "",
+								"xpos": 46
+							},
+							"vintage_lines.line": 11,
+							"vintage_lines.lines": 133,
+							"vintage_lines.mode": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 954.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "components/settings.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3502,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								706,
+								706
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"line_numbers": false,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_input_parsers":
+								[
+								],
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"vi",
+									"o",
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"user_input": "",
+								"xpos": 0
+							},
+							"vintage_lines.line": 31,
+							"vintage_lines.lines": 138,
+							"vintage_lines.mode": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 805.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/andres/Downloads/todonotesexample.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2334,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"line_numbers": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"vintage":
+							{
+								"_vintageous_input_parsers":
+								[
+								],
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"user_input": "",
+								"xpos": 9
+							},
+							"vintage_lines.line": 9,
+							"vintage_lines.lines": 53,
+							"vintage_lines.mode": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "components/abstract.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1992,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1990,
+								1990
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"highlight_line": false,
+							"line_numbers": false,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_input_parsers":
+								[
+								],
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"vi",
+									"o",
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"user_input": "",
+								"xpos": 15
+							},
+							"vintage_lines.line": 27,
+							"vintage_lines.lines": 27,
+							"vintage_lines.mode": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 347.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -490,11 +1107,15 @@
 	},
 	"output.exec":
 	{
-		"height": 84.0
+		"height": 409.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 118.0
 	},
 	"output.stino_log":
 	{
@@ -536,10 +1157,13 @@
 	},
 	"settings":
 	{
+		"_vintageous_last_buffer_search": "todo",
+		"_vintageous_last_character_search": "}",
+		"_vintageous_last_character_search_forward": true,
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
-			"_cmdline_cd": "/home/andres/.config/sublime-text-3/Packages",
+			"_cmdline_cd": "/Respaldo/BMC/Thesis/Latex/Thesis",
 			"last_buffer_search": "script"
 		}
 	},
@@ -547,7 +1171,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 257.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
