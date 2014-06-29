@@ -81,8 +81,8 @@
 \ifx\pdftexversion\undefined
  %% use PostScript graphics
  \usepackage[dvips]{graphicx}
- \DeclareGraphicsExtensions{.eps,.epsi}
- \graphicspath{{figures/}{figures/review}} 
+ \DeclareGraphicsExtensions{.eps,.epsi,.png}
+ \graphicspath{{figures/}{figures}} 
 
  %to add todo notes
  \usepackage{todonotes}
@@ -138,8 +138,9 @@
 %\usepackage[Bjarne]{fncychap}
 
 %\usepackage[avantgarde]{quotchap}
+\usepackage[square]{natbib}
 
 % set the bibliography style
 %\bibliographystyle{styles/bauermaNum}
-%\bibliographystyle{alpha}
-\bibliographystyle{plain}
+% \bibliographystyle{alpha}
+\bibliographystyle{plainnat}
