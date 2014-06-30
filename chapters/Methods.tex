@@ -3,15 +3,35 @@
 
 
 
-Here starts the thesis with an introduction. Please use nice latex and bibtex entries \cite{latex}. Do not spend time on formating your thesis, but on its content. 
+% Here starts the thesis with an introduction. Please use nice latex and bibtex entries \cite{latex}. Do not spend time on formating your thesis, but on its content. 
  
 \section{Theorical Background}
 There is no need for a latex introduction since there is plenty of literature out there.
+\todo{ intro to approach}
  
 
 \section{Notation and Symbols}
+This section introduces the common mathematical notations and symbols used in this 
+chapter.
+Normal formatting such as $a$ and $A$ are used to indicate integers or real numbers while letters in scripts such $\mathcal{A}$ are reserved for sets. In addition, 
+we use the symbols $\mathbb{R}$ for real numbers.
+For 3D vectors, we use the uppercase bold letters $\mathbf{A}$ while for 2D vectors, 
+we use the lowercase bold letters $\mathbf{a}$. If the vector if homogeneous, it will
+be explicitly define; otherwise, the vector is assumed to be inhomogeneous. A vector
+from point $A$ to $B$ is presented as $\overrightarrow{AB}$. Furthermore, matrices use
+monospace font such as $\mathtt{A}$. If the dimension are specified such as $\mathtt{A}$$_{mxn}$,
+$m$ would indicate the number of rows while $n$ indicates the numbers of columns.
+Regardings accents, a hat on a vector such as $\hat{a}$ or $\hat{A}$ indicates the normalized
+unit vector which means that $\hat{a}=\frac{a}{\|a\|}$ or $\hat{A}=\frac{A}{\|A\|}$.
+A tilde on a 3D vector indicates that the last coordinate is removed; thus, the vector 
+$A=(x,y,z)^T$ have $\hat{A}=(x,y)^T$  which is the projection of $A$ in the $xy$-axis,
+while the vector with homogeneous coordinate $B=(x,y,z,1)^T$ have $\hat{B}=(x,y,z)^T$ 
+which is the inhomogeneous coordinate of $B$. Lastly, a dot on top of variable indicates
+the converged value of the variable after an algorithm is performed. For instances,
+after using mean shift on $a_i$, it converges to a value $\dot{a}_i$
+
+\section{Part Based Model}
 There is no need for a latex introduction since there is plenty of literature out there.
 
-
-\section{Camera Geometry}
+\section{Linemod}
 There is no need for a latex introduction since there is plenty of literature out there.

@@ -8,8 +8,62 @@
 \section{Related Work}
 This thesis focuses on detecting fishes; therefore, this chapter concentrates on
 works that deal with object detection, specifically in underwater application.
-In \citet{Shortis2013} review the current technique apply in this field,
+In \citet{Shortis2013} reviewed the state of arts on the field of identification 
+and measurement of fish, using underwater stereo-video sequences. The most interesting 
+approaches describes in this paper, are related with automated measurement of fish 
+in video sequences as describe by \citet{Tillett2000} in what is one of the first 
+published reports on successful, operational, automated measurement system. The 
+technique is based on 3D Point Distribution (PDM), which are composed of landmark 
+locations on the outline of the fish, in this case Atlantic Salmon held in a small 
+aquaculture tank. The PDM specific to the species is developed from a small sample 
+of fish defined by manual measurement of stereo-images, leading to a mean shape 
+and an estimate of the variation based on principal component analysis. The PDM 
+is independent of the scale and orientation, but is limited only to the silhouette 
+of the fish and does not model the full body shape.
+This work, also analyse the methodologies for detection of fishes which comprises
+two steps: Identification and subsequent delineation of the fish outline. Most of the
+existing work on fish detection employ either the differences between successive 
+images \citet{Spampinato2008,Tillett2000} or histogram-thresholds to segment a 
+varying number of candidate regions in the frames. Active contours( also called snake)
+are especially useful for delineating objects like fish bodies that are difficult to 
+model with rigid geometric primitives. Moreover, active contours can be independent 
+from edge gradients with flexibility in initialisation \citet{Chan2001}. 
+The area-based active contour model \citet{Chan2001} is based on the on techniques 
+of curve evolution and level sets. While parametric active contours cannot handle 
+automatic change of topology, level sets allow for splitting 
+and merging in a natural way and are thus more suited for detection of an unknown
+number of fish in a video image. 
+In \citet{Shortis2013}, they also tackle the different technique apply in measurement.
+Underwater stereo systems are widely used to capture video of swimming fish for 
+subsequent measurement. the simplest form of measurement is the fish snout to tail 
+length which can be calculated if these two points can be identified in the stereo 
+pair of images. in our days this is done manually in most cases, with a favourable 
+orientation of the fish to the cameras and a multiple measurements within in the 
+sequences of frames do improve the precision of the measurements. One important 
+point to be noted is that fish are deformable and the euclidean distance from snout to tail
+changes as the fish swims.
+Template matching is one of the primitive methods that can be employed to accurately 
+locate fish snout and tail in video frames. First, individual templates (usually 
+rectangular image regions) centered on the snout and tail mid-points are extracted 
+from sample videos. Then an efficient template matching strategy is employed to 
+locate these templates in target videos. A certain degree of robustness against 
+illumination changes can be achieved by using correlation between template and 
+image regions of interest, instead of taking their absolute differences \citet{Mahmood2012}.
+However, template based methods fail in the presence of perspective or affine transformations, 
+requiring either use of multiple templates that capture appearance variations from 
+different viewing angles, or using more sophisticated matching techniques that are 
+invariant to affine or perspective transformations. 
+These enhancements also significantly increase computational complexity of the template matching step.
+A better way of locating snout and tail is to use Haar-like features in a boosted 
+classifier setup \citet{Viola2001} that has shown high object detection accuracy, 
+besides being able to operate in real-time. The method is in wide use for face detection.
+To train the classifier, manually cropped images of the target object (snout or tail) are used so that the classifier can learn which features (among a set of possibly thousands of features) can locate the target with high accuracy. These features, once learned, are then used to construct the object classifier that can locate the presence of the object in cluttered scenes. Due to their high detection speed and ability to perform a scale-space search, Haar classifiers are a promising candidate for locating snout and tail of fish in underwater images. The results of independent detection of the snout and tail using Haar detectors can be further improved using relationships between the detected snouts and tails, for instance by constraining the search for tail detection based on the results of snout detection and vice versa.
 
+Furthermore, since we are detecting fishes, it is safe to limit our scope to articulated
+object detection. This lead to the idea that our problem is similar to human pose
+estimation. and specifically to 
+
+\todo{ add ramanan and linemod approach}
 
 
 \section{Problem Statement}

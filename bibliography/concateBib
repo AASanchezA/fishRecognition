@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rm literature.bib
+cp literature.bib.bak literature.bib
+cat Thesis-Approach.bib >> literature.bib
+cat Thesis-Books.bib >> literature.bib
+cat Thesis-fishdetection.bib >> literature.bib
+cat Thesis-fisheconomy.bib >> literature.bib
+      

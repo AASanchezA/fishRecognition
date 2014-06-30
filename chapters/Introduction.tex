@@ -14,14 +14,14 @@ a threshold since 1980s while the farmed fishes picked up the difference in amou
 For instance, \citeauthor{LARSEN2011a} mention in \citeyearpar{LARSEN2011a} that Norway 
 alone increased their production of Salmons from a few thousand in the 1980s to 
 approximately 1.4 M in 2009 which constitutes around 51\% of the global supply. 
-This amkes then the largest supplier of Salmons in the world \citep{Asche2011, LARSEN2011a, Liu2011}.
+This makes then the largest supplier of Salmons in the world \citep{Asche2011, LARSEN2011a, Liu2011}.
 
-Other than favorable geographical and enviromental features that made Norway viable 
-for this industrym technological advancement also played an important role in the 
+Other than favourable geographical and environmental features that made Norway viable 
+for this industry technological advancement also played an important role in the 
 economical cycle between demand and supply. As production increase, they reduced 
 cost and as a consequence, increased the demand \cite{Asche2011}. Therefore, this cycle 
 supported the growth of the industry over the years.
-Since around, 80 \% of all sales of farmed fish are arranged pre-harvest, the porfit 
+Since around, 80 \% of all sales of farmed fish are arranged pre-harvest, the profit 
 on the sale directly depends on the correct estimations of weight, size distribution 
 and total biomass. Therefore, our project deals with remote monitoring of fishes size 
 and weight distribution in aquaculture environments. Considering a large amount of fish, 
@@ -31,30 +31,34 @@ fish in a video sequence and compute the biomass distribution over a specified p
 of time.
 \todo {Add description of hardware setup}
 
-\todo { check this praragraph}
-Underwater stereo-video measurement systems are used widely for counting
-and measuring fish in aquaculture, fisheries and conservation management.
-To determine population counts, aptial or temporal frequecies, most commonly
- using a point and click process by human operator.
-Current research aims to use stereo 3d depth vision system. 
-A fully automated process will requiere the detection and identification
-of candidates for measerument, followed by the SNOUT to fork length measurement, 
-as well as the counting and tracking of fish. This Thesis present a review and 
-implementation of techniques uses for the detection, Identification, measurement, 
-counting and tracking of fish in underwater image sequences, including consideration 
-of the changing in body shape.
-The review will analyse the most commonly used approaches, leading to an evaluation 
-of techniques most likely to be a  general solution to the complete process of 
-detection, measurement, counting and tracking
+\todo { check this paragraph}
+% Underwater stereo-video measurement systems are used widely for counting
+% and measuring fish in aquaculture, fisheries and conservation management.
+% To determine population counts, spatial or temporal frequencies, most commonly
+%  using a point and click process by human operator.
+% Current research aims to use stereo 3d depth vision system. 
+% A fully automated process will require the detection and identification
+% of candidates for measurement, followed by the SNOUT to fork length measurement, 
+% as well as the counting and tracking of fish. This Thesis present a review and 
+% implementation of techniques uses for the detection, Identification, measurement, 
+% counting and tracking of fish in underwater image sequences, including consideration 
+% of the changing in body shape.
+% The review will analyse the most commonly used approaches, leading to an evaluation 
+% of techniques most likely to be a  general solution to the complete process of 
+% detection, measurement, counting and tracking
 
 
 \section{Problem Statement}
 
-This work is part of the project call fishscan, where the main goal is design a system for remote monitoring of fishes size and weight distribution in aquaculture environments. during this project was develop a camera rig system consist in a underwater housing with a time of flight camera with LED light source and a 2D CCD grayscale camera as is shown in the fig \ref{fig:rigsetup}.
+This work is part of the project call fishscan, where the main goal is design a 
+system for remote monitoring of fishes size and weight distribution in aquaculture 
+environments. during this project was develop a camera rig system consist in a 
+underwater housing with a time of flight camera with LED light source and a 2D CCD 
+grayscale camera as is shown in the fig \ref{fig:rigsetup}.
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5]{rigsetup}
+\includegraphics[scale=0.4]{rigsetup}
 \caption{Rig Camera System - TOF + CCD cameras}
 \label{fig:rigsetup}
 \end{figure}
@@ -64,7 +68,7 @@ as the main goal of the project is compute the biomass of the fish by computing
 the volume of it, taken the concept of mass density from the physics, using the relation
 between biomass and volume. Then, this problem of biomass estimation can be formulated
 as a problem of volume estimation of the fish. to achieve this objective, the first 
-step is the fish detection in an 2D grayscale image. followed by a backprojection 
+step is the fish detection in an 2D grayscale image. followed by a back-projection 
 into the TOF image where the is possible to fit a 3D model to the detected fish.
 it is important to mention that the approach assume in this work is due of highly 
 noisy image acquire by the range imaging camera, which was adapted to work in a 
@@ -105,17 +109,60 @@ algorithm must be able to detect the fish from different perspectives.
 e.g. self occlusions, occlusion from another fishes and occlusion from object in 
 the environment.
 \end{enumerate}
+
+Based on the three challenges and the use of 2D intensity values obtained from the
+2D CCD camera, we propose an approach inspired by two works from, the first, 
+\citet{Mixtures-of-parts} which describe a method for articulated human detection
+and human pose estimation in static images based on a representation of deformable 
+part models. The main idea of their approach is to use a mixture of small, non-oriented 
+parts, which describe a general, flexible mixture model that jointly captures spatial 
+relations between parts locations and co-occurrences relations between part mixtures, 
+augmenting standard pictorial structure models that encode just spatial relations. 
+The second approach is propose in \citet{Hinterstoisser2012}, where they present 
+a method for real-time 3D object instance detection that does not require a time 
+consuming training stage, and can handle untextured objects. At its core, the approach 
+presented is a novel image representation for template matching designed to be robust 
+to small image transformations, This robustness is based on spread image gradient 
+orientations and allows to test only a small subset of all possible pixel locations 
+when parsing a image.
+In our approach, that can be considerer in the groups of machine learning method, 
+the learning process process tries to understand the relation between the input $X$
+and output $Y$; such that when the input $X$ is given, it can predict the outcome $Y$.
+In our case, the input $X$ are 2D grayscale intensity image containing fishes under
+different deformations and seen from different perspectives, while the expected output
+$Y$ are the positions of the desired keypoints and corresponding contours for the detected
+fishes, However, in the learning stage, we require a large amount of data that shows
+this relations. We need a great amount of labeled 2D intensity image where the locations
+of the keypoints and contours are given. unfortunately, the current motion tracking systems
+from human pose estimation are not a valid solution to find ground truth data for fish
+because the difference in behaviour as well as the difference in environment.Therefore,
+we address this problem by hand labeling real 2D deformed fishes images of a group of in a real
+scenario, where the fish are observed from different perspectives.
+
+\todo{ add short description of learning stage for part based and linemod}
+
+
+We evaluate the proposed method by matching the \todo{explain method the evaluate result}
+
+Therefore, this thesis accomplished the following: create a labeled real fish images datasets
+that comprise of intensity images acquire by 2D CCD camera, learn esqueleton and countours from
+labeled datasets, predict keypoints and contours an unlabeled 2D fish images and verify the validality
+of the predictions that will be discussed in Chapter 3 \todo{add ref}. A overview
+of the related works is in Chapter 2 \todo{add ref} while the implementations details are
+presented in Chapter 4. The result is discussed in Chapter 5 and finally, we conclude in Chapter 6.
+
 \todo { Continue from here}
-The monitoring of fish for stock assessment in aquaculture,
-commercial fisheries and in the assessment of the effectiveness of biodiversity 
-management strategies such as Marine Protected Areas and closed area management 
-is essential for the economic and environmental management of fish population,
-Video based techniques for fishery independent and non-destructive sampling now 
-widely accepted.
-The advantages od suing stereo-video for counting the numbers of fish. measuring 
-their lenght and defining the sample area have been well demostrated.
-However, the time lag and cost of processing video imagery decreases the cost of 
-miffectiveness and uptake of this technology. Current research aims t
+
+% The monitoring of fish for stock assessment in aquaculture,
+% commercial fisheries and in the assessment of the effectiveness of biodiversity 
+% management strategies such as Marine Protected Areas and closed area management 
+% is essential for the economic and environmental management of fish population,
+% Video based techniques for fishery independent and non-destructive sampling now 
+% widely accepted.
+% The advantages of suing stereo-video for counting the numbers of fish. measuring 
+% their length and defining the sample area have been well demonstrated.
+% However, the time lag and cost of processing video imagery decreases the cost of 
+% effectiveness and uptake of this technology. Current research aims t
 	
 
 
