@@ -82,6 +82,9 @@ positions to then determine whether or not the object of interest is present.
 \end{itemize}
 
 \subsection{Part Based model Detection}
+\todo{add images}
+\todo{add flowchart}
+\todo{redo the text to implement the problem}
 In this section will be discuss the method used to achieve the first task define in \ref{subsection:Basic Workflow}, analysing our target object, the fish, which can be 
 model like a deformable object with one main deformation axis, the one define by the backbone, Most fish move by alternately contracting paired sets of muscles on either side of the backbone. These contractions form S-shaped curves that move down the body.
 The pictorial structure framework arise as a feasible approach, which decomposes the appearance
@@ -90,7 +93,7 @@ the dominant approach for human pose estimation. For our problem comparing with 
 a simplification due to the movement constraints, and also the absence of big limbs which are replace by small fins, those fins not vary greatly in appearance in compare with human limbs.
 in the broad class of part based detection algorithm, the one propose by \citet{Ramanan2012} arise as the state of the arts, and is the one selected to be applied in
 our problem.
-\subsection{Model}
+\subsubsection{Model}
 Let us write $I$ for a image, $l_i = (x,y)$ for the pixel location of part $i$ and $t_i$ for the mixture component of part $i$. We write $i$ $\in$  $\{1\dotsc K\}$, $l_i \in \{1\dotsc L\}$ and $t_i \in \{1\dotsc T\}$. we call $t_i$ the ``type" of part $i$.
 \todo{adapt example} Our motivating examples of types include orientations of parts (e.g., a vertical versus horizontally oriented hand), but types may span out-of-plane
 rotations (front-view head versus side-view head) or even semantic classes ( an open versus side-view head) or even semantic classes (an open versus closed hand). For notational
@@ -121,7 +124,7 @@ Since co-occurrence parameters are learned, our model learns which collections o
 We can now write the full score associated with a configuration of part types and positions:
 \begin{equation}
 \label{eq:rigidity}
-S(t,l,t)=S(t) + \sum_{i\in V} \omega_i^{t_i} \dot \phi(I,l_i) + \sum_{ij\in E} \omega_{ij}^{t_i,t_j} \dot \psi(l_i - l_j)
+S(t,l,t)=S(t) + \sum_{i\in V} \omega_i^{t_i} \cdot \phi(I,l_i) + \sum_{ij\in E} \omega_{ij}^{t_i,t_j} \cdot \psi(l_i - l_j)
 \end{equation}
 
 where $\phi(I,l_i)$ is a feature vector( e.g, HOG descriptor \citet{Dalal2005})
@@ -136,22 +139,86 @@ tuned for type $t_i$, at location $l_i$.
 spring model that controls the relative placement of part $i$ and part $j$ by switching
  between a collection of springs. Each spring is tailored for a particular pair of 
  types $(t_i,t_j)$, and is parametrized by its rest location and rigidity, which are 
- encoded by $\omega_{ij}^{t_i, t_j}$.Our switching spring model encodes the dependende
+ encoded by $\omega_{ij}^{t_i, t_j}$.Our switching spring model encodes the dependence
  of local appearance on geometry, since different pairs of local mixtures are constrained
  to use different springs. Together with the co-occurrence term, it specifies an
  image-independent ``prior" over part locations and types.
 
- \subsection{Inference}
+
+\subsubsection{Inference}
+Inference corresponds to maximizing $S(I,l,t)$ from \ref{eq:rigidity} over $l$ and $t$.
+When the relational graph $G=(V,E)$ is a tree, this can be done efficiently with 
+dynamic programming. To illustrate inference, let us re-write \ref{eq:rigidity} by
+defining $z_i = (l_i,t_i)$ to denote both the discrete pixel location and discrete
+mixture type of part $i$:
+
+\begin{equation}
+\begin{split}
+S(I,z) = \sum_{i \in V} \phi_i(I,z_i) + \sum_{ij \in E} \psi_ij(z_i,z_j), \\
+where \quad \phi_i(I,z_i) = \omega_i^{t_i} \cdot \phi(I,l_i) + b_i^{t_i} \\
+\quad \quad \psi_{ij}(z_i,z_j)=\omega_{ij}^{t_i,t_j} \cdot \psi(l_i -l_j)+b_{ij}^{t_i,t_j}
+\end{split}
+\end{equation}
+
+From this perspective, it is clear that our final model is a discrete, pairwise Markov
+random field $(MRF)$. When $G=(V,E)$ is tree-structure, one can compute $max_z\, S(I,z)$ 
+with dynamic programming.
+
+To be precise, we iterate over all parts starting from the leaves and moving ``upstream"
+to the root part. We define kids$(i)$ be the set of children of part $i$, which is
+the empty set for leaf parts. We compute the message part $i$ passes to its parent $j$
+by the following:
+
+\begin{equation}
+\label{eq:inference1}
+score_i(z_i)=\phi_i(I,z_i) + \sum_{k\in kids(i)} m_k(z_i)
+\end{equation}
+
+\begin{equation}
+\label{eq:inference2}
+m_i(z_j)=\max\limits_{z_i}\left[score_i(z_i) + \psi_{ij}(z_i,z_j)\right]
+\end{equation}
+
+\ref{eq:inference1} computes the local score of part $i$, at all pixel locations $l_i$ 
+and for all possible types $t_i$, by collectiong messages from the children of $i$. 
+\ref{eq:inference2} computes for every location and possible type of part $i$, the
+best scoring location and type of its child part $i$. Once messages are passed to the root part $(i=1)$, $score_1(z_1)$ represents the best scoring configuration for each root position and type. One can use these root scores to generate multiple detections in image $I$ by thresholding them and applying non-maximum suppresion $(NMS)$. by keeping track of the $argmax$ indices, one can backtrack to find the location and type of each part in each maximal configuration. To find multiple detections anchored at the same root, one can use $N-best$ extensions of dynamic programming.
+\textit{Computation:} The computationally taxing portion od fynamic programming is \ref{eq:inference2}. We rewirte this step in detail:
+
+\begin{equation}
+\label{eq:inference3}
+m_i(t_i, l_j) = \max\limits_{t_i}\left[b_{ij}^{t_i,t_j}+ \max\limits_{l_i}\, score_i(t_i,l_i)+\omega_{ij}^{t_i,t_j} \cdot \psi(l_i,l_j)\right] 
+\end{equation}
+
+onee has to loop over $LxT$ possible parent locations and types, and compute a max over $LxT$ possible child locations and types, making the computation $O(L^2T^2$ 
+for each part. When $psi(l_i-l_j)$ is a quadratic function (as is the case for us), 
+the inner maximamization in \ref{eq:inference3} can be efficiently computed for each
+combination of $t_i$ and $t_j$ in $O(L)$ with a max-convolution or distance transform
+\citet{Felzenszwalb2005}. Since one has to perform $T^2$ distance transforms, message passing
+reduces to $O(LT^2)$ per part.
 
 
 
-
- \subsection{Learning}
+ \subsubsection{Learning}
  We assume a supervised learning paradigm. Given labeled positive examples ${I_n, l_n,t_n}$ 
-and negative examples ${I_n}$, we will define a strcutured prediction objective function similar to those proposed in 
+and negative examples ${I_n}$, we will define a structured prediction objective 
+function similar. To do so, let us write $l_n = (l_n, t_n)$ and note that the scoring
+function \ref{eq:rigidity} is linear in model parameters $\beta=(\omega,b)$, and so
+can be written as $S(I,z)=\beta \cdot \Phi(I,z)$. We would learn a model of the form:
+\begin{equation}
+\label{eq:learning}
+\begin{split}
+arg \quad mim_{\omega , \xi_n \geq 0} \quad \frac{1}{2}\beta \cdot \beta + C\sum_n \xi_n \\
+s.t. \forall\,n\,\in\,pos \quad \beta \cdot \Phi(I_n, z_n) \geq 1 - \xi_n \\
+\forall n \in neg, \forall z \quad \beta \cdot \Phi(I_n,z) \leq -1 + \xi_n
+\end{split}
+\end{equation}
+
+The above constraint states that positive examples should score better than 1 (the margin),
+while negative examples, for all configurations of part positions and types, should
+score less than -1. The objective function penalizes violations of these constraints
+using slack variables $\xi_n$.
 
 
 
-\section{Linemod}
-There is no need for a latex introduction since there is plenty of literature out there.
-process to extract
+\subsection{Template based Model}
