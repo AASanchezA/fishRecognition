@@ -491,20 +491,38 @@ arrows. This allows our similarity measure to be robust to small translations an
 \end{figure}
 
 \section{Propose Workflow}
+After review the tools necessaries to acchieve our goal, 
 
-\begin{algorithm}[H]
-% \SetAlgoLined
-\KwData{this text}
-\KwResult{how to write algorithm with \LaTeX2e }
-initialization\;
-\While{not at end of this document}{
-read current\;
-\eIf{understand}{
-go to next section\;
-current section becomes this one\;
-}{
-go back to the beginning of current section\;
+% \IncMargin{1em}
+\begin{adjustwidth}{-1in}{-1in} 
+\begin{algorithm}
+\label{algorithm:propose}
+\SetKwData{Left}{left}\SetKwData{This}{this}\SetKwData{Up}{up}
+\SetKwFunction{Union}{Union}\SetKwFunction{FindCompress}{FindCompress}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+\Input{A new Image $Im$ of the fishes}
+\Input{Trained detector $Td_{pbmFish}$ Part Based model}
+\Input{Trained detector $Td_{tmHead}$ Template matching for Head}
+\Input{Trained detector $Td_{tmTail}$ Template matching for Tail}
+\Output{Fish contour}
+\BlankLine
+\emph{	}\;
+fishCandidates$\leftarrow$ getCanditeFromPartBasedModel($Im$, $Td_{pbmFish}$)\;
+\ForEach{fishCandidate in fishCandidates}{
+	\emph{Go through all fish candidates and apply template matching}\;
+	headContours $\leftarrow$ contourbyLinemod($I_m$, $Td_{tmHead}$, fishCanditate.HeadBoundingBox)\;
+	tailContours $\leftarrow$ contourbyLinemod($I_m$, $Td_{tmTail}$, fishCanditate.TailBoundingBox)\;
+	\ForEach{headContour in headContours}{
+		\emph{Go through all head contour and check if the are connected with the tail}\;
+		\ForEach{tailContour in tailContours} {
+			\If{tailContour connected with headContour}{
+				Candidate $\leftarrow$ is Fish}
+			\Else{
+				continue}
+		}
+	}
 }
-}
-\caption{How to write algorithms}
+\caption{Propose workflow for fish contour detection}\label{algo_disjdecomp}
 \end{algorithm}
+\end{adjustwidth}
+% \DecMargin{1em}
