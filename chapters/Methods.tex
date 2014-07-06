@@ -18,6 +18,7 @@ explaining the fish swimming mechanics, this will bring the necessary knowledge 
 the strategy and possible constraint to our propose algorithm.
 
 \subsection{Fish swimming mechanics}
+\label{sec:fishswimming}
 A basic consideration for the design of algorithm to detect deformable object like fish are
 their shape and pattern of movement. Studies have identified several types of locomotion that
 fish use to generate thrust \citet{Hawkes2008,Colgate2004}. Most fish generate thrust by bending their
@@ -137,6 +138,7 @@ of stick joining specific features in the body.
 \end{itemize}
 
 \subsection{Part Based model Detection}
+\label{sec:partbased}
 \todo{redo the text to implement the problem}
 In this section will be discuss the method used to achieve the first task define in \ref{sec:workflow},
 analysing our target object, the fish, which can be model like a deformable object 
@@ -345,6 +347,7 @@ part position labels $l$, but not part type labels $t$.
 \todo{maybe connect to implementation}
 
 \subsection{Template based Model}
+\label{sec:templatedbased}
 This technique has played an important role in tracking-by-detection applications for
 many years. It is usually better adapted to low textured objects than feature point approaches. 
 Unfortunately, this increased robustness often comes at the cost of
@@ -444,8 +447,8 @@ This can be formalized as:
 \end{equation}
 
 where $R(c+r)=[c+r-\frac{T}{2}, c+r+\frac{T}{2}]\,X\,[c+r-\frac{T}{2}, c+r+\frac{T}{2}]$
-defines the neighborhood of size $T$ centered on location $c+r$ in the input image.
-Thus, for each gradient it is align the local neighborhood exactly to the associated 
+defines the neighbourhood of size $T$ cantered on location $c+r$ in the input image.
+Thus, for each gradient it is align the local neighbourhood exactly to the associated 
 location whereas in DOT, the gradient orientation is adjusted only to some regular grid. 
 We show below how to compute this measure efficiently.
 
@@ -479,7 +482,7 @@ In order to quatize the gradient orientation map, the gradient direction is omit
 consider only the gradient orientation and divide the orientation space into $n_0$
 equal spacing as shown in Fig. 3\todo{imagesss}. To make the quantization robust to 
 noise, we assign to each location the gradient whose quantized orientation occurs most often in a $3 x 3$
-neigbourhood. We also keep only the gradients whose norms are larger than a small
+neighbourhood. We also keep only the gradients whose norms are larger than a small
 threshold.
 
 \begin{figure}[ht]
@@ -491,10 +494,56 @@ arrows. This allows our similarity measure to be robust to small translations an
 \end{figure}
 
 \section{Propose Workflow}
-After review the tools necessaries to acchieve our goal, 
+The aim of this section is explain our workflow to achieve the goal define in 
+chapter \ref{chapter:Introduction}, and addresses the three major challenges, which are:
+\textit{Deformations, Different Viewpoints, Oclussions}.
+
+\begin{figure}[ht]
+\begin{adjustwidth}{-1in}{-1in}
+\centering
+\includegraphics[width=160mm]{proposeworkflow}
+\caption{Fish contour extraction - Propose workflow}
+\label{fig:Proposeworkflow}
+\end{adjustwidth}
+\end{figure}
+
+The propose workflow, as shown in figure \ref{fig:Proposeworkflow}, consists of two
+main stages, First, The Part Based model algorithm presented in section \ref{sec:partbased}, which 
+has a a output a bounding box associate to a probability to this part of the image correspond a
+fish part, as the are define in the corresponding labeled dataset. And second, Using the output
+from the first algorithm to apply the template matching only on the areas define by the bounding box,
+in this way is easier to get rid off the outliers. In this point is important to explain
+the consideration regarding the use of linemod in a \textbf{non-rigid} object detection.
+
+As we explain in section \ref{sec:fishswimming}; due to the physiological properties of
+our target, we can model it as a two part model, Head and Tail, and assuming that those
+parts are enough rigid to consider as a rigid object each one. as we already know from 
+the previous stage, which bounding box belong to which candidate fish, we just need to check
+that the contour found for head and tail fit between each other. to accomplish this task
+we extract from the detected contour the following parameter:
+\begin{itemize}
+\item \textit{found a ellipse}, we calculate the ellipse that fits (in a least-squares sense) the set of 2D points define by the contour.
+\item \textit{connector points}, We also extract from the contours, the so call, connector point
+which correspond to the to extreme of the contour as show in figure \ref{fig:ellipse}
+\end{itemize}
+
+\begin{figure}[ht]
+\begin{adjustwidth}{-1in}{-1in}
+\centering
+\includegraphics[width=160mm]{ellipse}
+\caption{This illustrate the final check, which is perform to the detected contours}
+\label{fig:ellipse}
+\end{adjustwidth}
+\end{figure}
+
+With those two parameters, then we can check if the correspond found contours are close enough
+and in the right position to form a the fish contour. A \textit{seudo-code} is presented 
+in algorithm \ref{algorithm:propose}
+to explain our propose workflow.
+
 
 % \IncMargin{1em}
-\begin{adjustwidth}{-1in}{-1in} 
+\begin{adjustwidth}{-1in}{-1in}
 \begin{algorithm}
 \label{algorithm:propose}
 \SetKwData{Left}{left}\SetKwData{This}{this}\SetKwData{Up}{up}
