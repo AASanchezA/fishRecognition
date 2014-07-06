@@ -27,7 +27,7 @@ images \citet{Spampinato2008,Tillett2000} or histogram-thresholds to segment a
 varying number of candidate regions in the frames. Active contours( also called snake)
 are especially useful for delineating objects like fish bodies that are difficult to 
 model with rigid geometric primitives. Moreover, active contours can be independent 
-from edge gradients with flexibility in initialisation \citet{Chan2001}. 
+from edge gradients with flexibility in initialisation \citep{Chan2001}. 
 The area-based active contour model \citet{Chan2001} is based on the on techniques 
 of curve evolution and level sets. While parametric active contours cannot handle 
 automatic change of topology, level sets allow for splitting 
@@ -48,22 +48,34 @@ rectangular image regions) centered on the snout and tail mid-points are extract
 from sample videos. Then an efficient template matching strategy is employed to 
 locate these templates in target videos. A certain degree of robustness against 
 illumination changes can be achieved by using correlation between template and 
-image regions of interest, instead of taking their absolute differences \citet{Mahmood2012}.
+image regions of interest, instead of taking their absolute differences \citep{Mahmood2012}.
 However, template based methods fail in the presence of perspective or affine transformations, 
 requiring either use of multiple templates that capture appearance variations from 
 different viewing angles, or using more sophisticated matching techniques that are 
 invariant to affine or perspective transformations. 
 These enhancements also significantly increase computational complexity of the template matching step.
 A better way of locating snout and tail is to use Haar-like features in a boosted 
-classifier setup \citet{Viola2001} that has shown high object detection accuracy, 
+classifier setup \citep{Viola2001} that has shown high object detection accuracy, 
 besides being able to operate in real-time. The method is in wide use for face detection.
 To train the classifier, manually cropped images of the target object (snout or tail) are used so that the classifier can learn which features (among a set of possibly thousands of features) can locate the target with high accuracy. These features, once learned, are then used to construct the object classifier that can locate the presence of the object in cluttered scenes. Due to their high detection speed and ability to perform a scale-space search, Haar classifiers are a promising candidate for locating snout and tail of fish in underwater images. The results of independent detection of the snout and tail using Haar detectors can be further improved using relationships between the detected snouts and tails, for instance by constraining the search for tail detection based on the results of snout detection and vice versa.
 
 Furthermore, since we are detecting fishes, it is safe to limit our scope to articulated
 object detection. This lead to the idea that our problem is similar to human pose
-estimation. and specifically to 
+estimation. and specifically two works from, the first, 
+\citet{ramanan2012} which describe a method for articulated human detection
+and human pose estimation in static images based on a representation of deformable 
+part models. The main idea of their approach is to use a mixture of small, non-oriented 
+parts, which describe a general, flexible mixture model that jointly captures spatial 
+relations between parts locations and co-occurrences relations between part mixtures, 
+augmenting standard pictorial structure models that encode just spatial relations. 
+The second approach is propose in \citet{Hinterstoisser2012}, where they present 
+a method for real-time 3D object instance detection that does not require a time 
+consuming training stage, and can handle untextured objects. At its core, the approach 
+presented is a novel image representation for template matching designed to be robust 
+to small image transformations, This robustness is based on spread image gradient 
+orientations and allows to test only a small subset of all possible pixel locations 
+when parsing a image. 
 
-\todo{ add ramanan and linemod approach}
 
 
 % There is no need for a latex introduction since there is plenty of literature out there.

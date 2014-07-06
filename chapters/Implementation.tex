@@ -7,20 +7,20 @@ for train, separately, the part based detection and the template based algorithm
 in the second section, we describe will describe development environment, and  training procedure.
 
 \section{Dataset - Part based model}
-In this section, We discuss the details involve in the creation of the dataset for
-train the algorithm define in \ref{chapter:Methods}, during the project we acquire
-a big amount of data, considering different in daylight light, water properties and
+In this section, We discuss the details involved in the creation of the dataset for
+training the algorithm defined in chapter \ref{chapter:Methods}, during the project we acquire
+a big amount of data, considering different in illumination, water properties and
 with different fish types, but for this work, and due that the data preparation is 
-handwork intensely, we process a specific set of data, in which all the experiment
+handwork intensely, we process a specific set of data, in which all the experiments
 will be performed, to achieve this goal, a small C++ application was developed.
 As introduced in \ref{chapter:Methods} the fish is model using the concept of stickmen, that
-mean the each part is define by its coordinates $(x,y)$ and joint through a line.
+mean, each part is define by its coordinates $(x,y)$ and joint through a line.
 analysing the fish structure, we create two dataset modelling the fish with 3 and 7 parts, as shown in
 figure \ref{fig:anotated1} and \ref{fig:anotated1} respectively.
 
 base on this two created dataset, it is possible then to extrapolate the model linearly,
 using a simple matrix multiplication as define in equation \ref{eq:extrapole}, enabling us to 
-test our propose algorithm with for example 5, 9, 11 part fish model.
+test our propose algorithm with for example 5, 9, 11 parts fish model.
 
 
 \begin{equation}
@@ -108,8 +108,8 @@ the new points define in the middle point of the existent parts.}
 \end{figure}
 
  \section{Dataset - Template based model based model}
- In this section, We discuss the details involve in the creation of the dataset for
- train the algorithm define in \ref{sec:templatedbased}, as said before for the template 
+ In this section, We discuss the details involved in the creation of the dataset for
+ training the algorithm defined in \ref{sec:templatedbased}, as said before for the template 
  matching algorithm, we propose a different way to generate the proper templates, 
  we have template for the Head and Tail, and we train two different linemod detector,
  one for each part, in the figures \ref{fig:head_1}, \ref{fig:head_2}, \ref{fig:tail_1} and

@@ -11,7 +11,7 @@ discussed in detail, and a suitable approach will be suggested. The reader shoul
 note that this chapter will provide only the overview of the theorical concepts, 
 implementation specific details will be covered in chapter \ref{chapter:Implementation} of the thesis.
 
-To decide the best way to approach this problem, we need first knows our target for
+To decide the best way to approach this problem, we need first know our target for
 the detection algorithm. In this case specifically, as we already mentioned, are fishes
 within aquaculture enclosures. To understand in a better form our target, we begin
 explaining the fish swimming mechanics, this will bring the necessary knowledge to define 
@@ -76,7 +76,7 @@ Normal formatting such as $a$ and $A$ are used to indicate integers or real numb
 while letters in scripts such $\mathcal{A}$ are reserved for sets. In addition, 
 we use the symbols $\mathbb{R}$ for real numbers.
 For 3D vectors, we use the uppercase bold letters $\mathbf{A}$ while for 2D vectors, 
-we use the lowercase bold letters $\mathbf{a}$. If the vector if homogeneous, it will
+we use the lowercase bold letters $\mathbf{a}$. If the vector is homogeneous, it will
 be explicitly define; otherwise, the vector is assumed to be inhomogeneous. A vector
 from point $A$ to $B$ is presented as $\overrightarrow{AB}$. Furthermore, matrices use
 monospace font such as $\mathtt{A}$. If the dimension are specified such as $\mathtt{A}$$_{mxn}$,
@@ -139,7 +139,6 @@ of stick joining specific features in the body.
 
 \subsection{Part Based model Detection}
 \label{sec:partbased}
-\todo{redo the text to implement the problem}
 In this section will be discuss the method used to achieve the first task define in \ref{sec:workflow},
 analysing our target object, the fish, which can be model like a deformable object 
 with one main deformation axis as show in the Figure \ref{fig:fishlocomotion}, at the beginning
@@ -179,13 +178,13 @@ Hence, this model captures the dependence of local part appearance on geometry.}
 Let us write $I$ for a image, $l_i = (x,y)$ for the pixel location of part $i$ and $t_i$ 
 for the mixture component of part $i$. We write $i$ $\in$  $\{1\dotsc K\}$, $l_i \in \{1\dotsc L\}$ 
 and $t_i \in \{1\dotsc T\}$. we call $t_i$ the ``type" of part $i$.
-\todo{adapt example} Our motivating examples of types include orientations of parts 
-(e.g., a vertical versus horizontally oriented hand), but types may span out-of-plane
+Our motivating examples of types include orientations of parts 
+(e.g., a vertical versus horizontally oriented fin), but types may span out-of-plane
 rotations (front-view head versus side-view head) or even semantic classes 
 (an open versus side-view head) or even semantic classes (an open versus closed hand). 
 For notational convenience, we define lack of subscript to indicate a set spanned by that subscript
 (e,g,. $t=\{t1\dotsc t_K\}$. For simplicity, we define our model at a fixed scale; 
-at test time we detect people of different sizes by searching over an image pyramid.
+at test time we detect fish of different sizes by searching over an image pyramid.
 
 \textit{Co-occurrence model:} To score of a configuration of parts, we first 
 define a compatibility function for part types that factors into a sum of local and pairwise scores:
@@ -203,7 +202,7 @@ $t_i$ and $t_j$.
 
 \textit{Rigidity:} we write $G = (V,E)$ for a (tree-structured) $K-node$ relational
 graph whose edges specify which pairs of parts are constrained to have consistent
-relations.Such a graph can still encode relations between distant parts through transitivity.
+relations. Such a graph can still encode relations between distant parts through transitivity.
 For example, our model can force a collection of parts to share the same orientation,
 so long as the parts to share the same orientation, so long as the parts form a connected
 $subtree$ of $G = (V,E)$. We use this property to model multiple parts on the torso.
@@ -224,7 +223,7 @@ articulated pictorial structures).
 that computes the local score of placing a template $\omega_i^{t_i}$ for part $i$,
 tuned for type $t_i$, at location $l_i$.
 
-\textit{Deformation model:} The Second term can be interpreted as a \"switching\"
+\textit{Deformation model:} The Second term can be interpreted as a ``switching"
 spring model that controls the relative placement of part $i$ and part $j$ by switching
 between a collection of springs. Each spring is tailored for a particular pair of 
 types $(t_i,t_j)$, and is parametrized by its rest location and rigidity, which are 
@@ -305,18 +304,18 @@ m_i(t_i, l_j) = \max\limits_{t_i}\left[b_{ij}^{t_i,t_j}+ \max\limits_{l_i}\, sco
 \end{equation}
 
 one has to loop over $LxT$ possible parent locations and types, and compute a max 
-over $LxT$ possible child locations and types, making the computation $O(L^2T^2$ 
+over $LxT$ possible child locations and types, making the computation $O(L^2T^2)$ 
 for each part. When $psi(l_i-l_j)$ is a quadratic function (as is the case for us), 
 the inner maximization in \ref{eq:inference3} can be efficiently computed for each
 combination of $t_i$ and $t_j$ in $O(L)$ with a max-convolution or distance transform
-\citet{Felzenszwalb2005}. Since one has to perform $T^2$ distance transforms, message passing
+\citep{Felzenszwalb2005}. Since one has to perform $T^2$ distance transforms, message passing
 reduces to $O(LT^2)$ per part.
 
 
 
  \subsubsection{Learning}
- We assume a supervised learning paradigm. Given labeled positive examples ${I_n, l_n,t_n}$ 
-and negative examples ${I_n}$, we will define a structured prediction objective 
+ We assume a supervised learning paradigm. Given labeled positive examples $\left\{I_n, l_n,t_n\right\}$ 
+and negative examples $\left\{I_n\right\}$, we will define a structured prediction objective 
 function similar. To do so, let us write $l_n = (l_n, t_n)$ and note that the scoring
 function \ref{eq:rigidity} is linear in model parameters $\beta=(\omega,b)$, and so
 can be written as $S(I,z)=\beta \cdot \Phi(I,z)$. We would learn a model of the form:
@@ -343,8 +342,7 @@ which is typically \textit{much} smaller. In practice, dual coordinate descent m
 enough to reach near-optimal solutions in a simple pass through large datasets.
 
 In practice, to apply this algorithm, We define parts to be located at joints, so these provide
-part position labels $l$, but not part type labels $t$.
-\todo{maybe connect to implementation}
+part position labels $l$, but not part type labels $t$. further dataset detail can be found in chapter \ref{chapter:Implementation}
 
 \subsection{Template based Model}
 \label{sec:templatedbased}
@@ -356,7 +354,6 @@ for real -time applications. This is especially true as many templates must be
 used to cover the range of possible viewpoints. for our application due of physical 
 constraint of the camera rig system and the design of the aquaculture infrastructure
 the viewpoints to the tracking object (Fish) is always coming from the side.
-\todo{camera rig pic and cage setup}
 from this viewpoints the amount of template necessary to have a proper result is reduce, as we explain at the beginning of this chapter. 
 
 Our approach is based on the recent and efficient template matching methods from
@@ -381,7 +378,7 @@ making the templates invariant to small deformations and translation by consider
 dominant orientation only, the build a representation of the input images which has
 similar invariance properties but consider all gradient orientations in local image
 neighbourhood. Together with a novel similarity measure, this prevents problems due
-to too strong gradients in the background. \todo{maybe a pic}.
+to too strong gradients in the background.
 
 This algorithm consider the modern CPU architecture through exploit heavy SSE parallelization, 
 structuring the the images 
@@ -398,7 +395,7 @@ representation to  avoid ``memory cache misses" which slow down the computations
 In this section, we describe the template representation and show how the representation 
 of the input image can be use to parse the image to quickly find objects.
 We will start by deriving the similarity measure, emphasizing the contribution of each 
-aspect of it, \todo{check if we use this} it show how is implement the approach to
+aspect of it, it show how is implement the approach to
 efficiently use modern processor architectures.
 
 \subsubsection{Similarity Measure}
@@ -418,7 +415,7 @@ can deal with arbitrarily shaped objects efficiently. A template $\tau$ is there
 defined as a pair $\tau=(\Theta,P)$.
 
 Each template $tau$ is created by extracting a small set of its most discriminant
-gradient orientations from the corresponding reference image as shown in Fig\todo{"fig"}
+gradient orientations from the corresponding reference image as shown in figure \ref{fig:quatized}
 and by storing their locations. To extract the most discriminative gradients we consider
 the strength of their norms. In this selection process, we also take the location
 of the gradients into account to avoid an accumulation of gradient orientations in
@@ -430,7 +427,7 @@ to correctly handle object occluding boundaries: It will not be affected if the 
 is over a dark background, or a bright background.
 
 The similarity measure of Eq. \ref{eq:similarity} is very robust to background clutter,
-but not to small shifts and deformations \todo{check}. A common solution is to first
+but not to small shifts and deformations. A common solution is to first
 quantize the orientations and to use local histograms like in SIFT \citet{Lowe2004} 
 or HOG \citet{Dalal2005}. However this can be unstable when strong gradients appear 
 in the background.
@@ -478,9 +475,9 @@ where
 
 and $R,G,B$ are the RGB channels of the corresponding color image.
 
-In order to quatize the gradient orientation map, the gradient direction is omit,
+In order to quantize the gradient orientation map, the gradient direction is omitted,
 consider only the gradient orientation and divide the orientation space into $n_0$
-equal spacing as shown in Fig. 3\todo{imagesss}. To make the quantization robust to 
+equal spacing as shown in figure \ref{fig:quatized}. To make the quantization robust to 
 noise, we assign to each location the gradient whose quantized orientation occurs most often in a $3 x 3$
 neighbourhood. We also keep only the gradients whose norms are larger than a small
 threshold.
@@ -490,10 +487,10 @@ threshold.
 \includegraphics[width=140mm]{linemod/quantized}
 \caption{Spreading the gradient orientations. Left: The gradient orientations and their binary code. We do not consider the direction of the gradients. a) The gradient orientations in the input image, shown in orange, are first extracted and quantized. b) Then, the locations around each orientation are also labeled with this orientation, as shown by the blue
 arrows. This allows our similarity measure to be robust to small translations and deformations. c) is an efficient representation of the orientations after this operation, and can be computed very quickly.}
-\label{fig:clutter}
+\label{fig:quatized}
 \end{figure}
 
-\section{Propose Workflow}
+\section{Proposed Workflow}
 \label{sec:proposeworkflow}
 The aim of this section is explain our workflow to achieve the goal define in 
 chapter \ref{chapter:Introduction}, and addresses the three major challenges, which are:
@@ -511,14 +508,14 @@ chapter \ref{chapter:Introduction}, and addresses the three major challenges, wh
 The propose workflow, as shown in figure \ref{fig:Proposeworkflow}, consists of two
 main stages, First, The Part Based model algorithm presented in section \ref{sec:partbased}, which 
 has a a output a bounding box associate to a probability to this part of the image correspond a
-fish part, as the are define in the corresponding labeled dataset. And second, Using the output
+fish part, as the are defined in the corresponding labeled dataset. And second, using the output
 from the first algorithm to apply the template matching only on the areas define by the bounding box,
 in this way is easier to get rid off the outliers. In this point is important to explain
 the consideration regarding the use of linemod in a \textbf{non-rigid} object detection.
 
 As we explain in section \ref{sec:fishswimming}; due to the physiological properties of
 our target, we can model it as a two part model, Head and Tail, and assuming that those
-parts are enough rigid to consider as a rigid object each one. as we already know from 
+parts are rigid enough to consider them as rigid objects separately. as we already know from 
 the previous stage, which bounding box belong to which candidate fish, we just need to check
 that the contour found for head and tail fit between each other. to accomplish this task
 we extract from the detected contour the following parameter:
@@ -538,7 +535,7 @@ which correspond to the to extreme of the contour as show in figure \ref{fig:ell
 \end{figure}
 
 With those two parameters, then we can check if the correspond found contours are close enough
-and in the right position to form a the fish contour. A \textit{seudo-code} is presented 
+and in the right position to form a the fish contour. A \textit{pseudo-code} is presented 
 in algorithm \ref{algorithm:propose}
 to explain our propose workflow.
 

@@ -18,7 +18,7 @@ economical cycle between demand and supply. As production increase, they reduced
 cost and as a consequence, increased the demand \cite{Asche2011}. Therefore, this cycle 
 supported the growth of the industry over the years.
 
-Since around, 80 \% of all sales of farmed fish are arranged pre-harvest, the profit 
+Since around, 80\% of all sales of farmed fish are arranged pre-harvest, the profit 
 on the sale directly depends on the correct estimations of weight, size distribution 
 and total biomass. Therefore, our project deals with remote monitoring of fishes size 
 and weight distribution in aquaculture environments. Considering a large amount of fish, 
@@ -26,9 +26,9 @@ it becomes essential to develop an automated biomass estimator to constantly mon
 the changes or growth of fishes. This system involves cameras that would detect the 
 fish in a video sequence and compute the biomass distribution over a specified period 
 of time.
-\todo {Add description of hardware setup}
+% \todo {Add description of hardware setup}
 
-\todo { check this paragraph}
+% \todo { check this paragraph}
 % Underwater stereo-video measurement systems are used widely for counting
 % and measuring fish in aquaculture, fisheries and conservation management.
 % To determine population counts, spatial or temporal frequencies, most commonly
@@ -92,7 +92,7 @@ of the fish because it is not depth invariant and the size is up-to-scale; This 
 will may use of the 2D intensity image as a First step, detecting the fish contour.
 The pipeline depicted in Fig. \ref{fig:pipeline} consist of three major steps
 that are: fish detection, contour extraction, volume-biomass estimation. In this 
-project, we concentrate on the first step that is fish detection and contour extraction.
+project, we concentrate on the first two steps that is fish detection and contour extraction.
 
 \begin{figure}[h]
 \centering
@@ -105,7 +105,7 @@ At this point we need to find a algorithm for fish detection and contour extract
 that addresses the three major challenges of our problem, These are:
 
 \begin{enumerate}
-\item \textit{Deformations}, THe algorithm must handle different motions of the
+\item \textit{Deformations}, The algorithm must handle different motions of the
 which suggests that we are dealing with a deformable (articulated) object.
 \item \textit{Different Viewpoints}, As the fish move around its environment, the 
 algorithm must be able to detect the fish from different perspectives.
@@ -129,8 +129,8 @@ presented is a novel image representation for template matching designed to be r
 to small image transformations, This robustness is based on spread image gradient 
 orientations and allows to test only a small subset of all possible pixel locations 
 when parsing a image.
-In our approach, that can be considerer in the groups of machine learning method, 
-the learning process process tries to understand the relation between the input $X$
+In our approach, that can be consider in the groups of machine learning method, 
+the learning process tries to understand the relation between the input $X$
 and output $Y$; such that when the input $X$ is given, it can predict the outcome $Y$.
 In our case, the input $X$ are 2D grayscale intensity image containing fishes under
 different deformations and seen from different perspectives, while the expected output
@@ -139,16 +139,16 @@ fishes, However, in the learning stage, we require a large amount of data that s
 this relations. We need a great amount of labeled 2D intensity image where the locations
 of the keypoints and contours are given. unfortunately, the current motion tracking systems
 from human pose estimation are not a valid solution to find ground truth data for fish
-because the difference in behaviour as well as the difference in environment.Therefore,
+because the difference in behaviour as well as the difference in environment. Therefore,
 we address this problem by hand labeling real 2D deformed fishes images of a group of in a real
 scenario, where the fish are observed from different perspectives.
 
-\todo{ add short description of learning stage for part based and linemod}
+% \todo{ add short description of learning stage for part based and linemod}
 
 
 We evaluate the proposed method by the broadly-adopted evaluation protocol based on the probability of 
 a correct pose (PCP), which measure the percentage of correctly localized body parts, 
-a candidate body part in labeled as correct if its segment endpoints lie within 50 \% of the length
+a candidate body part in labeled as correct if its segment endpoints lie within 50\% of the length
 of the ground-truth annotated endpoints.
 
 
@@ -156,7 +156,7 @@ Therefore, this thesis accomplished the following: create a labeled real fish im
 that comprise of intensity images acquire by 2D CCD camera, learn esqueleton and countours from
 labeled datasets, predict keypoints and contours an unlabeled 2D fish images and verify the validality
 of the predictions that will be discussed in Chapter \ref{chapter:Methods}. A overview
-of the related works is in Chapter 2 \ref{chapter:related Work} while the implementations details are
+of the related works is in Chapter \ref{chapter:Related Work} while the implementations details are
 presented in Chapter \ref{chapter:Implementation}. The result is discussed in Chapter \ref{chapter:Results and Discussion}
  and finally, we conclude in Chapter \ref{chapter:Conclusion}.
 
