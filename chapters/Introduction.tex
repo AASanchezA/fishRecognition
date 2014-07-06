@@ -1,9 +1,5 @@
 \chapter{Introduction}
 \label{chapter:Introduction}
-
-
-
-% Here starts the thesis with an introduction. Please use nice latex and bibtex entries \cite{latex}. Do not spend time on formating your thesis, but on its content. 
  
 \section{Motivation}
 As we progress from livelihood fisheries to aquaculture industries, the global 
@@ -21,6 +17,7 @@ for this industry technological advancement also played an important role in the
 economical cycle between demand and supply. As production increase, they reduced 
 cost and as a consequence, increased the demand \cite{Asche2011}. Therefore, this cycle 
 supported the growth of the industry over the years.
+
 Since around, 80 \% of all sales of farmed fish are arranged pre-harvest, the profit 
 on the sale directly depends on the correct estimations of weight, size distribution 
 and total biomass. Therefore, our project deals with remote monitoring of fishes size 
@@ -54,7 +51,7 @@ This work is part of the project call fishscan, where the main goal is design a
 system for remote monitoring of fishes size and weight distribution in aquaculture 
 environments. during this project was develop a camera rig system consist in a 
 underwater housing with a time of flight camera with LED light source and a 2D CCD 
-grayscale camera as is shown in the fig \ref{fig:rigsetup}.
+grayscale camera as is shown in the fig. \ref{fig:rigsetup}.
 
 \begin{figure}[h]
 \centering
@@ -64,7 +61,7 @@ grayscale camera as is shown in the fig \ref{fig:rigsetup}.
 \end{figure}
 
 
-as the main goal of the project is compute the biomass of the fish by computing 
+As the main goal of the project is compute the biomass of the fish by computing 
 the volume of it, taken the concept of mass density from the physics, using the relation
 between biomass and volume. Then, this problem of biomass estimation can be formulated
 as a problem of volume estimation of the fish. to achieve this objective, the first 
@@ -72,7 +69,7 @@ step is the fish detection in an 2D grayscale image. followed by a back-projecti
 into the TOF image where the is possible to fit a 3D model to the detected fish.
 it is important to mention that the approach assume in this work is due of highly 
 noisy image acquire by the range imaging camera, which was adapted to work in a 
-underwater environment, but as you can see in the 3D image shown in \ref{fig:tofNoisy}
+underwater environment, but as you can see in the 3D image shown in Fig. \ref{fig:tofNoisy}
 
 
 \begin{figure}[h]
@@ -82,7 +79,7 @@ underwater environment, but as you can see in the 3D image shown in \ref{fig:tof
 }\subfigure[depth Image]{
 	\includegraphics[scale=0.3]{tof_2}
 }
-% \qquad
+
 \subfigure[3D represemtation depth image]{
 	\includegraphics[scale=0.3]{tof_3}
 }%
@@ -93,9 +90,16 @@ underwater environment, but as you can see in the 3D image shown in \ref{fig:tof
 although, the detection using the 2D intensity image alone cannot compute the volume
 of the fish because it is not depth invariant and the size is up-to-scale; This work 
 will may use of the 2D intensity image as a First step, detecting the fish contour.
-The pipeline depicted in \todo{ add image ref \ref{}} consist of three major steps
+The pipeline depicted in Fig. \ref{fig:pipeline} consist of three major steps
 that are: fish detection, contour extraction, volume-biomass estimation. In this 
 project, we concentrate on the first step that is fish detection and contour extraction.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=150mm]{pipeline}
+\caption{The framework that describe the overview of the problem}
+\label{fig:pipeline}
+\end{figure}
 
 At this point we need to find a algorithm for fish detection and contour extraction 
 that addresses the three major challenges of our problem, These are:
@@ -112,7 +116,7 @@ the environment.
 
 Based on the three challenges and the use of 2D intensity values obtained from the
 2D CCD camera, we propose an approach inspired by two works from, the first, 
-\citet{Mixtures-of-parts} which describe a method for articulated human detection
+\citet{ramanan2012} which describe a method for articulated human detection
 and human pose estimation in static images based on a representation of deformable 
 part models. The main idea of their approach is to use a mixture of small, non-oriented 
 parts, which describe a general, flexible mixture model that jointly captures spatial 
@@ -142,16 +146,19 @@ scenario, where the fish are observed from different perspectives.
 \todo{ add short description of learning stage for part based and linemod}
 
 
-We evaluate the proposed method by matching the \todo{explain method the evaluate result}
+We evaluate the proposed method by the broadly-adopted evaluation protocol based on the probability of 
+a correct pose (PCP), which measure the percentage of correctly localized body parts, 
+a candidate body part in labeled as correct if its segment endpoints lie within 50 \% of the length
+of the ground-truth annotated endpoints.
+
 
 Therefore, this thesis accomplished the following: create a labeled real fish images datasets
 that comprise of intensity images acquire by 2D CCD camera, learn esqueleton and countours from
 labeled datasets, predict keypoints and contours an unlabeled 2D fish images and verify the validality
-of the predictions that will be discussed in Chapter 3 \todo{add ref}. A overview
-of the related works is in Chapter 2 \todo{add ref} while the implementations details are
-presented in Chapter 4. The result is discussed in Chapter 5 and finally, we conclude in Chapter 6.
-
-\todo { Continue from here}
+of the predictions that will be discussed in Chapter \ref{chapter:Methods}. A overview
+of the related works is in Chapter 2 \ref{chapter:related Work} while the implementations details are
+presented in Chapter \ref{chapter:Implementation}. The result is discussed in Chapter \ref{chapter:Results and Discussion}
+ and finally, we conclude in Chapter \ref{chapter:Conclusion}.
 
 % The monitoring of fish for stock assessment in aquaculture,
 % commercial fisheries and in the assessment of the effectiveness of biodiversity 

@@ -2,16 +2,39 @@
 \label{chapter:Conclusion}
 
 
-
-Here starts the thesis with an introduction. Please use nice latex and bibtex entries \cite{latex}. Do not spend time on formating your thesis, but on its content. 
- 
-\section{Discussion}
-There is no need for a latex introduction since there is plenty of literature out there.
- 
-
 \section{Conclusion}
-There is no need for a latex introduction since there is plenty of literature out there.
+In this thesis, we accomplished  the goals of creating a annotated datasets that
+comprise of learning keypoints and fish contours from a set of 2D grayscale images.
+We also implement a combine solution from a part based detection model and a template
+matching detection approach, which is capable of predict keypoints and fish contours in an 
+unlabeled 2d grayscale image and verifying the validity of the prediction.
 
 
-% \section{Next Section}
-% There is no need for a latex introduction since there is plenty of literature out there.
+\todo{more detail about the algorithm}
+Inspired on the works from \citet{Ramanan2012} and \citet{Hinterstoisser2012}, we 
+use the part based model
+Based on the results, we conclude that the algorithm work best when the sagittal plane
+of the fish is parallel to the image plane. In addition, we also conclude \todo{.....}
+
+Lastly, we demonstrate our algorithm on multiple fish detection by \todo{......}
+
+\section{Future Work}
+Multiple fish detection and occlusions are some of the biggest challenges in this
+project and needs to be addressed because they are always present in real situations.
+Another important task for the future would be to increase the size of the labeled database
+to improve the detection result, and perform a benchmarking of other approaches to
+have a better picture of what are the challenges involve in this problem.
+
+Since the final product combine a Time of flight camera and a 2D HD grayscale camera in a
+stereo system rig inside a underwater housing, the next step would be use the strength
+from each device into fusing the depth information with the 2D intensity image.
+This present new challenges as the system is design with underwater purpose. the new approach
+should deal with the systematical error introduce in perspective pinhole camera mode by several
+refraction of the light rays causes by the housing configuration, due to the glass interface
+between water and air or other inert gas introduce in the housing, this issue could be
+handle by the approach propose in this work \citet{Sedlazeck2011}.
+
+After accomplish a proper data fusion between the two modalities, the next step
+would be find a algorithm capable of take advantage of all this information in a 
+optimize way.
+
