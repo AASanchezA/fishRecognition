@@ -557,8 +557,8 @@ to explain our propose workflow.
 fishCandidates$\leftarrow$ getCanditeFromPartBasedModel($Im$, $Td_{pbmFish}$)\;
 \ForEach{fishCandidate in fishCandidates}{
 	\emph{Go through all fish candidates and apply template matching}\;
-	headContours $\leftarrow$ contourbyLinemod($I_m$, $Td_{tmHead}$, fishCanditate.HeadBoundingBox)\;
-	tailContours $\leftarrow$ contourbyLinemod($I_m$, $Td_{tmTail}$, fishCanditate.TailBoundingBox)\;
+	headContours $\leftarrow$ contourbyLinemod($I_m$, $Td_{tmHead}$, HeadBoundingBox)\;
+	tailContours $\leftarrow$ contourbyLinemod($I_m$, $Td_{tmTail}$, TailBoundingBox)\;
 	\ForEach{headContour in headContours}{
 		\emph{Go through all head contour and check if the are connected with the tail}\;
 		\ForEach{tailContour in tailContours} {
